@@ -38,9 +38,10 @@ class CardController:
 
     @staticmethod
     def update_cvv(card: Card, cvv: str):
-        card.cvv = cvv
-        card.save()
-        return card
+        if len(cvv) == 3:
+            card.cvv = cvv
+            card.save()
+            return card
 
     # Delete
     @staticmethod
